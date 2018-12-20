@@ -16,7 +16,7 @@ const y = d * 365.25;
  *  - `long` verbose formatting [false]
  */
 
-export default function(
+export function ms(
   val: string | number,
   options?: { [key: string]: any }
 ): string | number {
