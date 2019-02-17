@@ -1,7 +1,7 @@
 // Adapted from https://github.com/zeit/ms/blob/master/test.js
 // Copyright (c) 2016 Zeit, Inc. MIT License
 // Copyright (c) 2018 Kevin "Kun" Kassimo Qian. MIT License
-import { test, assertEqual } from "https://deno.land/x/testing/testing.ts";
+import { test, assertEqual } from "https://deno.land/x/testing/mod.ts";
 import { ms } from "./ms.ts";
 
 // ms(string)
