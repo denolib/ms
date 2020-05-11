@@ -19,17 +19,18 @@ const y = d * 365.25;
 export function ms(
   val: string | number,
   options?: { [key: string]: any }
-): string | number {
+): string | number | undefined {
   switch (typeof val) {
     case "string":
-      if ((val as string).length > 0) {
-        return parse(val as string);
+      if ((val).length > 0) {
+        return parse(val);
       }
+      break
     case "number":
-      if (!isNaN(val as number)) {
+      if (!isNaN(val)) {
         return options && options!.long
-          ? fmtLong(val as number)
-          : fmtShort(val as number);
+          ? fmtLong(val)
+          : fmtShort(val);
       }
   }
   throw new Error(
