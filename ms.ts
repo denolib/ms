@@ -18,23 +18,22 @@ const y = d * 365.25;
 
 export function ms(
   val: string | number,
-  options?: { [key: string]: any }
-): string | number {
+  options?: { [key: string]: any },
+): string | number | undefined {
   switch (typeof val) {
     case "string":
-      if ((val as string).length > 0) {
-        return parse(val as string);
+      if ((val).length > 0) {
+        return parse(val);
       }
+      break;
     case "number":
-      if (!isNaN(val as number)) {
-        return options && options!.long
-          ? fmtLong(val as number)
-          : fmtShort(val as number);
+      if (!isNaN(val)) {
+        return options && options!.long ? fmtLong(val) : fmtShort(val);
       }
   }
   throw new Error(
     "val is not a non-empty string or a valid number. val=" +
-      JSON.stringify(val)
+      JSON.stringify(val),
   );
 }
 
@@ -45,9 +44,11 @@ function parse(str: string): number | undefined {
   if (str.length > 100) {
     return;
   }
-  const match = /^((?:\d+)?-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
-    str
-  );
+  const match =
+    /^((?:\d+)?-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i
+      .exec(
+        str,
+      );
   if (!match) {
     return;
   }
