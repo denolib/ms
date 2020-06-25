@@ -7,7 +7,7 @@ It is ported from [https://github.com/zeit/ms](https://github.com/zeit/ms) to wo
 ## Examples
 
 ```js
-import ms from "https://raw.githubusercontent.com/denolib/ms/master/ms.ts";
+import { ms } from "https://raw.githubusercontent.com/denolib/ms/master/ms.ts";
 
 ms('2 days')  // 172800000
 ms('1d')      // 86400000
